@@ -8,6 +8,15 @@
 	</head>
 	<body>
 		<%= render 'layouts/header'%>
+		<%#= link_to "Sign in with Linked in", user_omniauth_authorize_path(:provider) %>
+		<% if current_user %>
+			<%= image_tag(current_user.largeimage)%>
+		<% end %><br>
+		Name : <b><%= $auth_hash.info.name%></b><br>
+		User id :<b><%= $auth_hash.uid%></b><br>
+		Email :<b><%= $auth_hash.info.email%></b><br>
+		Provider : <b><%= $auth_hash.provider%></b><br>
+
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
 		<%= yield %>
